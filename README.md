@@ -1,1 +1,10 @@
 # Online-data-mining
+This project provides a complete pipeline for collecting, cleaning, and analyzing movie data from Metacritic. It is built with Scrapy for web crawling, pandas for cleaning and transformation, and Jupyter for exploratory analysis. The workflow starts with the spider, which extracts movie details such as titles, metadata, and scores directly from the site. The raw data can be exported as JSON or CSV, and an optional PostgreSQL integration allows persistence into a relational database.
+
+After data collection, a cleaning and merging script prepares the dataset for analysis, ensuring consistent formatting, accurate types, and removal of duplicates. A cleaned dataset is then loaded into a Jupyter notebook, where exploratory data analysis and visualizations reveal trends and insights. The repository includes both the raw output of the scraper and the processed dataset as examples.
+
+To run the project, you first set up a Python environment with Scrapy, pandas, Jupyter, and psycopg2 if database storage is required. The spider can be executed from the command line, producing a raw export file. The cleaning script processes this file into a structured dataset, and the notebook can then be launched to explore the data. If PostgreSQL is enabled, credentials can be set via environment variables, and the pipeline automatically inserts records as the crawl progresses.
+
+The configuration is flexible. Crawl scope, concurrency, and throttling can be tuned in the settings file, while the item schema can be adapted by editing the items definition. Pipelines and middlewares allow further customization such as de-duplication, retries, or additional data processing steps.
+
+The repository demonstrates how a modular data mining workflow can be constructed and used for real-world data analysis. Future extensions could include exporting to parquet for performance, adding a Docker setup for reproducibility, or wrapping the workflow in a Makefile for single-command execution. A license such as MIT can be added to clarify usage rights.
